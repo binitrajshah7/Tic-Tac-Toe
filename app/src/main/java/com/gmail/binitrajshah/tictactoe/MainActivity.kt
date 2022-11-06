@@ -1,5 +1,6 @@
 package com.gmail.binitrajshah.tictactoe
 
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -57,37 +58,114 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.button1 -> {
-                updateValue(row = 0, col = 0, PLAYER = player)
+                if(boardStatus[0][0] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 0, col = 0, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button2 -> {
-                updateValue(row = 0, col = 1, PLAYER = player)
+                if(boardStatus[0][1] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 0, col = 1, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button3 -> {
-                updateValue(row = 0, col = 2, PLAYER = player)
+                if(boardStatus[0][2] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 0, col = 2, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button4 -> {
-                updateValue(row = 1, col = 0, PLAYER = player)
+                if(boardStatus[1][0] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 1, col = 0, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button5 -> {
-                updateValue(row = 1, col = 1, PLAYER = player)
+                if(boardStatus[1][1] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 1, col = 1, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button6 -> {
-                updateValue(row = 1, col = 2, PLAYER = player)
+                if(boardStatus[1][2] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 1, col = 2, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button7 -> {
-                updateValue(row = 2, col = 0, PLAYER = player)
+                if(boardStatus[2][0] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 2, col = 0, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button8 -> {
-                updateValue(row = 2, col = 1, PLAYER = player)
+                if(boardStatus[2][1] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 2, col = 1, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
             R.id.button9 -> {
-                updateValue(row = 2, col = 2, PLAYER = player)
+                if(boardStatus[2][2] != -1) {
+                    val mp = MediaPlayer.create(this, R.raw.beep)
+                    mp.start()
+                }
+                else{
+                    updateValue(row = 2, col = 2, PLAYER = player)
+                    turnCount++;
+                    player = !player
+                }
+
             }
         }
-
-        player = !player
-        turnCount++;
-
 
         // changing display
         if (player) {
@@ -97,6 +175,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         if (turnCount == 9) {
+            MediaPlayer.create(this, R.raw.draw
+            ).start()
             updateDisplay("Game Draw!")
         }
 
@@ -106,7 +186,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun updateDisplay(displayText: String) {
         turnDisplay.text = displayText
-        if (displayText.contains("Winner")) {
+        if (displayText.contains("Won")) {
             for (i in board) {
                 for (button in i) {
                     button.isEnabled = false;
@@ -120,7 +200,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val text = if (PLAYER) "X" else "O"
         val value = if (PLAYER) 1 else 0
         board[row][col].apply {
-            isEnabled = false;
+//            isEnabled = false;
             setText(text)
         }
 
@@ -132,10 +212,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         for (i in 0..2) {
             if (boardStatus[i][0] == boardStatus[i][1] && boardStatus[i][0] == boardStatus[i][2]) {
                 if (boardStatus[i][0] == 1) {
-                    updateDisplay("Congratulations, Player X is Winner")
+                    MediaPlayer.create(this, R.raw.tadaa).start()
+                    updateDisplay("X Won")
                     break
                 } else if (boardStatus[i][0] == 0) {
-                    updateDisplay("Congratulations, Player O is Winner")
+                    MediaPlayer.create(this, R.raw.tadaa).start()
+                    updateDisplay("O Won")
                     break
                 }
             }
@@ -145,10 +227,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         for (i in 0..2) {
             if (boardStatus[0][i] == boardStatus[1][i] && boardStatus[0][i] == boardStatus[2][i]) {
                 if (boardStatus[0][i] == 1) {
-                    updateDisplay("Congratulations, Player X is Winner")
+                    MediaPlayer.create(this, R.raw.tadaa).start()
+                    updateDisplay("X Won")
                     break
                 } else if (boardStatus[0][i] == 0) {
-                    updateDisplay("Congratulations, Player O is Winner")
+                    MediaPlayer.create(this, R.raw.tadaa).start()
+                    updateDisplay("O Won")
                     break
                 }
             }
@@ -157,18 +241,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // diagonal first
         if (boardStatus[0][0] == boardStatus[1][1] && boardStatus[0][0] == boardStatus[2][2]) {
             if (boardStatus[0][0] == 1) {
-                updateDisplay("Congratulations, Player X is Winner")
+                MediaPlayer.create(this, R.raw.tadaa).start()
+                updateDisplay("X Won")
             } else if (boardStatus[0][0] == 0) {
-                updateDisplay("Congratulations, Player O is Winner")
+                MediaPlayer.create(this, R.raw.tadaa).start()
+                updateDisplay("O Won")
             }
         }
 
         // diagonal second
         if (boardStatus[0][2] == boardStatus[1][1] && boardStatus[0][2] == boardStatus[2][0]) {
             if (boardStatus[0][2] == 1) {
-                updateDisplay("Congratulations, Player X is Winner")
+                MediaPlayer.create(this, R.raw.tadaa).start()
+                updateDisplay("X Won")
             } else if (boardStatus[0][2] == 0) {
-                updateDisplay("Congratulations, Player O is Winner")
+                MediaPlayer.create(this, R.raw.tadaa).start()
+                updateDisplay("O Won")
             }
         }
     }
