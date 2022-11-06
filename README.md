@@ -1,9 +1,8 @@
 
 # Tic Tac Toe ![2.0 version](https://img.shields.io/badge/version-2.0-blue)
 
-This a very fun TicTacToe game to play with your friends.
-you can play multiplayer. It has a very cool looking ui and you will love you interact with it.
-You can also save same, for latter play.
+This a simple yet fun to play TicTacToe game to play with your friends.
+We can play multiplayer.
 
 
 
