@@ -17,7 +17,7 @@ We can play multiplayer.
 
 # Demo Video & APK Link
 - [Demo here](https://drive.google.com/file/d/1azY4XlEAb8FgbOvFqe8er8LTsrQBXCIS/view?usp=share_link)
-- [APK here]([https://drive.google.com/file/d/1azY4XlEAb8FgbOvFqe8er8LTsrQBXCIS/view?usp=share_link](https://drive.google.com/file/d/1oq4Dz0_WvTqBK8Ct2EVp8csS_t6OE-w6/view?usp=share_link))
+- [APK here](https://drive.google.com/file/d/1oq4Dz0_WvTqBK8Ct2EVp8csS_t6OE-w6/view?usp=share_link)
 
 ## Screenshots
 
